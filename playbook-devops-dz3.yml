@@ -19,7 +19,7 @@
       clone: yes
 
   - name: building app
-    shell: mvn -f /home/ubuntu/app/boxfuse-sample-java-war-hello/pom.xml package
+    shell: mvn -f /home/ubuntu/app/pom.xml package
 
 
 - name: web app
@@ -47,6 +47,6 @@
 
   - name: copy war app 
     synchronize:
-      src: /home/ubuntu/app/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      src: /home/ubuntu/app/target/hello-1.0.war
       dest: /var/lib/tomcat9/webapps
     delegate_to: build-srv
