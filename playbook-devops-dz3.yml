@@ -15,11 +15,11 @@
   - name: git clone app boxfuse
     git:
       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-      dest: /tmp
+      dest: /home/ubuntu
       clone: yes
 
   - name: building app
-    shell: mvn -f ./tmp/boxfuse-sample-java-war-hello/pom.xml package
+    shell: mvn -f /home/ubuntu/boxfuse-sample-java-war-hello/pom.xml package
 
 
 - name: web app
@@ -44,9 +44,9 @@
     apt: 
       name: rsync
       state: present
-      
+
   - name: copy war app 
     synchronize:
-      src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      src: /home/ubuntu/boxfuse-sample-java-war-hello/target/hello-1.0.war
       dest: /var/lib/tomcat9/webapps
     delegate_to: build-srv
