@@ -1,0 +1,17 @@
+---
+- name: building app boxfuse
+  hosts: build-srv
+  become: yes
+
+  tasks:
+  - name: Ensure maven package is present
+    apt:
+      name: maven
+      state: present
+  - name: git clone app boxfuse
+    git:
+      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
+      dest: /tmp
+  - name: building app
+    shell: mvn -f ./tmp/boxfuse-sample-java-war-hello/pom.xml package
+    
