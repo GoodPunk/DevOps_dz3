@@ -49,4 +49,4 @@
     synchronize:
       src: /home/ubuntu/app/target/hello-1.0.war
       dest: /var/lib/tomcat9/webapps
-    delegate_to: build-srv
+    delegate_to: 44.200.135.53
